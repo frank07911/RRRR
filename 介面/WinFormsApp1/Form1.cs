@@ -86,7 +86,6 @@ namespace WinFormsApp1
         {
 
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             if (radioButton2.Checked == true)
@@ -101,8 +100,9 @@ namespace WinFormsApp1
                 form3.Show();
                 this.Hide();
             }
-        }
 
+        }
+        
 
     }
 }

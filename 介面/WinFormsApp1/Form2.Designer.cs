@@ -33,7 +33,6 @@
             PictureBox1 = new PictureBox();
             button1 = new Button();
             timer1 = new System.Windows.Forms.Timer(components);
-            pictureBox2 = new PictureBox();
             imageList1 = new ImageList(components);
             pipeup = new PictureBox();
             pipedown = new PictureBox();
@@ -42,27 +41,29 @@
             pipeup3 = new PictureBox();
             pipedown3 = new PictureBox();
             scoretext = new Label();
-            top = new PictureBox();
             bottom = new PictureBox();
+            角色 = new ImageList(components);
+            top = new PictureBox();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)PictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipeup).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipedown).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipeup2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipedown2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipeup3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pipedown3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)top).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bottom).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)top).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // PictureBox1
             // 
             PictureBox1.BackgroundImage = (Image)resources.GetObject("PictureBox1.BackgroundImage");
             PictureBox1.BackgroundImageLayout = ImageLayout.Zoom;
-            PictureBox1.Location = new Point(34, 195);
+            PictureBox1.Location = new Point(19, 60);
             PictureBox1.Name = "PictureBox1";
-            PictureBox1.Size = new Size(97, 84);
+            PictureBox1.Size = new Size(58, 49);
             PictureBox1.TabIndex = 0;
             PictureBox1.TabStop = false;
             PictureBox1.Click += pictureBox1_Click;
@@ -81,16 +82,8 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Interval = 1000;
+            timer1.Interval = 50;
             timer1.Tick += timer1_Tick;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(-9, 430);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(822, 50);
-            pictureBox2.TabIndex = 2;
-            pictureBox2.TabStop = false;
             // 
             // imageList1
             // 
@@ -107,7 +100,7 @@
             // pipeup
             // 
             pipeup.Image = Properties.Resources.pipe_up;
-            pipeup.Location = new Point(261, 331);
+            pipeup.Location = new Point(813, 369);
             pipeup.Name = "pipeup";
             pipeup.Size = new Size(52, 320);
             pipeup.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -118,12 +111,13 @@
             // pipedown
             // 
             pipedown.Image = Properties.Resources.pipe_down;
-            pipedown.Location = new Point(261, -120);
+            pipedown.Location = new Point(666, -194);
             pipedown.Name = "pipedown";
             pipedown.Size = new Size(52, 320);
             pipedown.SizeMode = PictureBoxSizeMode.AutoSize;
             pipedown.TabIndex = 4;
             pipedown.TabStop = false;
+            pipedown.Click += pipedown_Click;
             // 
             // pipeup2
             // 
@@ -138,7 +132,7 @@
             // pipedown2
             // 
             pipedown2.Image = Properties.Resources.pipe_down___2;
-            pipedown2.Location = new Point(475, -141);
+            pipedown2.Location = new Point(933, -245);
             pipedown2.Name = "pipedown2";
             pipedown2.Size = new Size(52, 320);
             pipedown2.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -148,7 +142,7 @@
             // pipeup3
             // 
             pipeup3.Image = Properties.Resources.pipe_up___3;
-            pipeup3.Location = new Point(690, 291);
+            pipeup3.Location = new Point(1163, 338);
             pipeup3.Name = "pipeup3";
             pipeup3.Size = new Size(52, 320);
             pipeup3.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -158,7 +152,7 @@
             // pipedown3
             // 
             pipedown3.Image = Properties.Resources.pipe_down___3;
-            pipedown3.Location = new Point(690, -81);
+            pipedown3.Location = new Point(1263, -211);
             pipedown3.Name = "pipedown3";
             pipedown3.Size = new Size(52, 320);
             pipedown3.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -174,29 +168,46 @@
             scoretext.TabIndex = 9;
             scoretext.Text = "label1";
             // 
-            // top
-            // 
-            top.Location = new Point(97, 104);
-            top.Name = "top";
-            top.Size = new Size(100, 50);
-            top.TabIndex = 10;
-            top.TabStop = false;
-            // 
             // bottom
             // 
-            bottom.Location = new Point(88, 358);
+            bottom.Location = new Point(-2, 433);
             bottom.Name = "bottom";
             bottom.Size = new Size(100, 50);
             bottom.TabIndex = 11;
             bottom.TabStop = false;
+            bottom.Click += bottom_Click;
+            // 
+            // 角色
+            // 
+            角色.ColorDepth = ColorDepth.Depth8Bit;
+            角色.ImageStream = (ImageListStreamer)resources.GetObject("角色.ImageStream");
+            角色.TransparentColor = Color.Transparent;
+            角色.Images.SetKeyName(0, "飛飛人.png");
+            角色.Images.SetKeyName(1, "麥塊.png");
+            // 
+            // top
+            // 
+            top.Location = new Point(6, -42);
+            top.Name = "top";
+            top.Size = new Size(354, 50);
+            top.TabIndex = 10;
+            top.TabStop = false;
+            top.Click += top_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Location = new Point(-15, 424);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(822, 50);
+            pictureBox2.TabIndex = 2;
+            pictureBox2.TabStop = false;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(859, 450);
-            Controls.Add(bottom);
-            Controls.Add(top);
+            BackColor = Color.White;
+            ClientSize = new Size(1520, 450);
             Controls.Add(scoretext);
             Controls.Add(pipedown3);
             Controls.Add(pipeup3);
@@ -204,9 +215,11 @@
             Controls.Add(pipeup2);
             Controls.Add(pipedown);
             Controls.Add(pipeup);
-            Controls.Add(pictureBox2);
             Controls.Add(button1);
             Controls.Add(PictureBox1);
+            Controls.Add(bottom);
+            Controls.Add(pictureBox2);
+            Controls.Add(top);
             Name = "Form2";
             Text = "Form2";
             Load += Form2_Load;
@@ -215,15 +228,15 @@
             KeyUp += Form2_KeyUp;
             PreviewKeyDown += Form2_PreviewKeyDown;
             ((System.ComponentModel.ISupportInitialize)PictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipeup).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipedown).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipeup2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipedown2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipeup3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pipedown3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)top).EndInit();
             ((System.ComponentModel.ISupportInitialize)bottom).EndInit();
+            ((System.ComponentModel.ISupportInitialize)top).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -233,7 +246,6 @@
         private PictureBox PictureBox1;
         private Button button1;
         private System.Windows.Forms.Timer timer1;
-        private PictureBox pictureBox2;
         private ImageList imageList1;
         private PictureBox pipeup;
         private PictureBox pipedown;
@@ -242,7 +254,9 @@
         private PictureBox pipeup3;
         private PictureBox pipedown3;
         private Label scoretext;
-        private PictureBox top;
         private PictureBox bottom;
+        private ImageList 角色;
+        private PictureBox top;
+        private PictureBox pictureBox2;
     }
 }

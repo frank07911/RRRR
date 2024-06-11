@@ -14,6 +14,7 @@ namespace WinFormsApp1
 {
     public partial class Form2 : Form
     {
+        
         public Form2()
         {
             InitializeComponent();
@@ -22,13 +23,13 @@ namespace WinFormsApp1
         int score = 0;
         int pipespeed = 15;
 
+
+
+
         private void Form2_Load(object sender, EventArgs e)
         {
+            button1.Enabled = false;
             timer1.Start();
-            //if (PictureBox1.Top >= pictureBox2.Top)
-            // {
-            //   this.Close();
-            //}
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -44,7 +45,10 @@ namespace WinFormsApp1
 
         private void Form2_KeyDown(object sender, KeyEventArgs e)
         {
-
+            if (e.KeyCode == Keys.Space)
+            {
+                timer1.Start();
+            }
         }
 
         private void Form2_KeyPress(object sender, KeyPressEventArgs e)
@@ -54,10 +58,7 @@ namespace WinFormsApp1
 
         private void Form2_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Up)
-            {
-                PictureBox1.Top -= 10;
-            }
+
         }
 
         private void Form2_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
@@ -76,6 +77,7 @@ namespace WinFormsApp1
             pipedown3.Left -= pipespeed;
 
             scoretext.Text = "分數:" + score;
+
 
             if (pipeup.Left < -50)
             {
@@ -122,8 +124,34 @@ namespace WinFormsApp1
             timer1.Stop();
             scoretext.Text += "遊戲結束";
             MessageBox.Show("遊戲結束\n你的分數為" + score);
+            button1.Enabled = true;
         }
         private void pictureBox3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void top_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void bottom_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pipedown_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
         {
 
         }
